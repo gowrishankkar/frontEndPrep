@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 // import { Route, Link, BrowserRouter, Routes } from "react-router-dom";
 
 import MainView from "./View/MainView";
@@ -26,10 +26,11 @@ import Grid from "@material-ui/core/Grid";
 const App = () => {
   const [expanded, setExpanded] = React.useState(true);
   const [activeKey, setActiveKey] = React.useState("1");
-  // const [showComp, setShowComp] = React.useState(<Home />);
+  const [showComp, setShowComp] = React.useState("");
 
-  const changeComp = () => {
-    console.log("reresr");
+  const changeComp = (key) => {
+    console.log("key", key);
+    setShowComp(key);
   };
 
   return (
@@ -64,10 +65,18 @@ const App = () => {
                   >
                     FileExplorer
                   </Nav.Item>
-                  <Nav.Item eventKey="3-2" onSelect={() => changeComp("test")}>
-                    Devices
+                  <Nav.Item
+                    eventKey="3-2"
+                    onSelect={() => changeComp("Pagination")}
+                  >
+                    Pagination
                   </Nav.Item>
-                  <Nav.Item eventKey="3-3">Loyalty</Nav.Item>
+                  <Nav.Item
+                    eventKey="3-3"
+                    onSelect={() => changeComp("GridLights")}
+                  >
+                    GridLights
+                  </Nav.Item>
                   <Nav.Item eventKey="3-4">Visit Depth</Nav.Item>
                 </Nav.Menu>
                 <Nav.Menu
@@ -94,7 +103,7 @@ const App = () => {
         </div>
       </Grid>
       <Grid item xs={9}>
-        <MainView />
+        <MainView comp={showComp} />
       </Grid>
     </Grid>
   );
