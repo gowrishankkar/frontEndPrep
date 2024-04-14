@@ -1,8 +1,9 @@
 import React from "react";
-import FileExplorer from "../FileExplorer/FileExplorer";
-import Pagination from "../Pagination/Pagination";
+import FileExplorer from "../ReactPrep/FileExplorer/FileExplorer";
+import Pagination from "../ReactPrep/Pagination/Pagination";
 import Home from "../components/Home";
-import GridLights from "../GridLights/GridLights";
+import GridLights from "../ReactPrep/GridLights/GridLights";
+import UseMemo from "../ReactPrep/UseMemo/UseMemo";
 
 const MainView = ({ comp }) => {
   console.log("sdfsdf", comp);
@@ -13,6 +14,8 @@ const MainView = ({ comp }) => {
       return <Pagination />;
     case "GridLights":
       return <GridLights />;
+    case "UseMemo":
+      return <UseMemo />;
     default:
       return <Home />;
   }

@@ -77,7 +77,12 @@ const App = () => {
                   >
                     GridLights
                   </Nav.Item>
-                  <Nav.Item eventKey="3-4">Visit Depth</Nav.Item>
+                  <Nav.Item
+                    eventKey="3-4"
+                    onSelect={() => changeComp("UseMemo")}
+                  >
+                    UseMemo
+                  </Nav.Item>
                 </Nav.Menu>
                 <Nav.Menu
                   placement="rightStart"
