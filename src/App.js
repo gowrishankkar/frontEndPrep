@@ -1,7 +1,7 @@
 import React  from "react";
 // import { Route, Link, BrowserRouter, Routes } from "react-router-dom";
-import FileExplorer from "./FileExplorer/FileExplorer";
-import Home from "./components/Home";
+
+import MainView from "./View/MainView";
 import { Sidenav, Nav, Toggle } from "rsuite";
 import DashboardIcon from "@rsuite/icons/legacy/Dashboard";
 import GroupIcon from "@rsuite/icons/legacy/Group";
@@ -94,7 +94,7 @@ const App = () => {
         </div>
       </Grid>
       <Grid item xs={9}>
-        <FileExplorer />
+        <MainView />
       </Grid>
     </Grid>
   );
