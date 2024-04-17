@@ -4,6 +4,8 @@ import Pagination from "../ReactPrep/Pagination/Pagination";
 import Home from "../components/Home";
 import GridLights from "../ReactPrep/GridLights/GridLights";
 import UseMemo from "../ReactPrep/UseMemo/UseMemo";
+import LikeButton from "../ReactPrep/LikeButton/LikeButton";
+import DarkMode from "../ReactPrep/DarkMode/DarkMode";
 
 const MainView = ({ comp }) => {
   console.log("sdfsdf", comp);
@@ -16,8 +18,10 @@ const MainView = ({ comp }) => {
       return <GridLights />;
     case "UseMemo":
       return <UseMemo />;
+    case "LikeButton":
+      return <LikeButton />;
     default:
-      return <Home />;
+      return <DarkMode />;
   }
 };
 
