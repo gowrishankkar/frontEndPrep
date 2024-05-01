@@ -83,6 +83,12 @@ const App = () => {
                   >
                     UseMemo
                   </Nav.Item>
+                  <Nav.Item
+                    eventKey="3-5"
+                    onSelect={() => changeComp("TicTacToe")}
+                  >
+                    TicTacToe
+                  </Nav.Item>
                 </Nav.Menu>
                 <Nav.Menu
                   placement="rightStart"
