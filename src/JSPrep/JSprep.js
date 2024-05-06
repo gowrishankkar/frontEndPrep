@@ -1,55 +1,48 @@
-import { useState } from "react";
-
-const Debouncing = () => {
-  const [pressed, setPressed] = useState(0);
-  const [triggered, setTriggered] = useState(0);
-
-  const debounce = () => {
-    console.log("debouncing");
-    setPressed(pressed + 1);
-    setTriggered(triggered + 1);
-  };
-  const reset = () => {
-    setPressed(0);
-    setTriggered(0);
-  };
-  return (
-    <>
-      <button onClick={debounce}>debouncing</button>
-      <button onClick={reset}>reset</button>
-      <h3>Pressed {pressed}</h3>
-      <h3>Triggered {triggered}</h3>
-    </>
-  );
-};
-
-const Throttling = () => {
-  const [pressed, setPressed] = useState(0);
-  const [triggered, setTriggered] = useState(0);
-
-  const reset = () => {
-    setPressed(0);
-    setTriggered(0);
-  };
-  const throtte = () => {
-    console.log("throttling");
-    setPressed(pressed + 1);
-    setTriggered(triggered + 1);
-  };
-  return (
-    <>
-      <button onClick={throtte}>throtte</button>
-      <button onClick={reset}>reset</button>
-      <h3>Pressed {pressed}</h3>
-      <h3>Triggered {triggered}</h3>
-    </>
-  );
-};
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const JSprep = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetchEmployeeData();
+  }, []);
+
+  const fetchEmployeeData = async () => {
+    fetch("https://dummyjson.com/products/")
+      .then((res) => res.json())
+      .then((json) => setProducts(json.products));
+  };
+
+  const deleteLastProduct = async () => {
+    const lastProduct = products[products.length - 1];
+    axios
+      .delete(`https://dummyjson.com/products/${lastProduct.id}`)
+      .then((res) => {
+        console.log(res);
+        console.log(res.data);
+      });
+  };
+
   return (
     <>
-      <Throttling />
+      {products.map((ele) => {
+        return (
+          <table>
+            <tr>
+              <th style={{ paddingRight: "10px" }}>{ele.id}</th> {"  "}
+              <th style={{ paddingRight: "10px" }}>{ele.title}</th> {"  "}
+              <th style={{ paddingRight: "10px" }}>{ele.brand}</th> {"  "}
+              <th style={{ paddingRight: "10px" }}>{ele.category}</th> {"  "}
+              <img
+                src={ele.thumbnail}
+                style={{ width: "50px", height: "50px" }}
+              />
+              <button onClick={deleteLastProduct}> Delete</button>
+            </tr>
+          </table>
+        );
+      })}
     </>
   );
 };
