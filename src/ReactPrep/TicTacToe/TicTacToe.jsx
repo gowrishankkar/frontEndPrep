@@ -2,7 +2,7 @@ import "./ticTacToe.css";
 
 import useTicTacToe from "./useTicTacToe";
 
-const TicTacToe = () => {
+const TicTacToe = (size) => {
   const { board, handleClick, getStatusMessage, resetGame } = useTicTacToe();
 
   return (

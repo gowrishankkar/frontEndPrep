@@ -7,6 +7,7 @@ import UseMemo from "../ReactPrep/UseMemo/UseMemo";
 import LikeButton from "../ReactPrep/LikeButton/LikeButton";
 import DarkMode from "../ReactPrep/DarkMode/DarkMode";
 import TicTacToe from "../ReactPrep/TicTacToe/TicTacToe";
+import JSprep from "../JSPrep/JSprep";
 
 const MainView = ({ comp }) => {
   console.log("sdfsdf", comp);
@@ -24,8 +25,11 @@ const MainView = ({ comp }) => {
     case "TicTacToe":
       return <TicTacToe />;
 
+    case "JSprep":
+      return <JSprep />;
+
     default:
-      return <DarkMode />;
+      return <JSprep />;
   }
 };
 

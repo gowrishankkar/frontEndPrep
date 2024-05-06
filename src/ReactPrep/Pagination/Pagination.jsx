@@ -27,7 +27,7 @@ const Pagination = () => {
       selectedPage <= totalPages &&
       selectedPage !== page
     )
-      setPage(selectedPage);
+      setPage(selectedPage + 1);
   };
 
   return (

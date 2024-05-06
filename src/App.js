@@ -89,6 +89,12 @@ const App = () => {
                   >
                     TicTacToe
                   </Nav.Item>
+                  <Nav.Item
+                    eventKey="3-5"
+                    onSelect={() => changeComp("JSprep")}
+                  >
+                    JSprep
+                  </Nav.Item>
                 </Nav.Menu>
                 <Nav.Menu
                   placement="rightStart"
